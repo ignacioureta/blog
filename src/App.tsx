@@ -2,6 +2,7 @@ import React from "react";
 import ColorSelect from "./components/ColorSelect";
 import LocatedInSelect from "./components/LocatedInSelect";
 import AuthorSelect from "./components/AuthorSelect";
+import SourceSelect from "./components/SourceSelect";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <ColorSelect />
         <LocatedInSelect />
         <AuthorSelect />
+        <SourceSelect />
       </div>
     </div>
   );
