@@ -22,7 +22,6 @@ export default function LocatedInSelect() {
       isClearable={false}
       placeholder="Mobile, desktop..."
       onMenuOpen={() => setOpen(true)}
-      defaultValue={options[0]}
       onMenuClose={() => {
         setOpen(false);
         setFocused(false);

@@ -92,13 +92,10 @@ export default function AuthorSelect() {
       styles={{
         multiValue: base => ({
           ...base,
-          background: "#F2F2F2",
-          height: "24px",
-          boxSizing: "border-box",
-          padding: "5px 8px",
-          borderRadius: "12px",
+          background: "transparent",
           fontSize: "12px",
-          paddingRight: "11px"
+          paddingRight: 0,
+          paddingLeft: 0
         }),
         option: base => ({
           ...base,
@@ -112,7 +109,8 @@ export default function AuthorSelect() {
         multiValueLabel: base => ({
           ...base,
           fontSize: "12px",
-          marginTop: "-3px"
+          marginTop: "2px",
+          color: "#0081C2"
         }),
         multiValueRemove: base => ({
           ...base,

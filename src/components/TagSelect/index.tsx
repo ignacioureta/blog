@@ -56,6 +56,7 @@ export default function ColorSelect() {
           ...base,
           color: "#000000"
         }),
+        option: base => ({ ...base, fontSize: "13px", color: "#333333" }),
         indicatorSeparator: base => ({ ...base, display: "none" })
       }}
       options={options}

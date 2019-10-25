@@ -84,6 +84,21 @@ const Option = (props: any) => {
   );
 };
 
+const MultiValueStyled = styled(components.MultiValue)<any>`
+  & > *::before {
+    content: url("${({ data }) => {
+      console.log("MVL", data);
+      return data && data.type === Type.SPACE ? SpaceSvg : NotebookSvg;
+    }}");
+    color: #0081C2;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+  }
+`;
+
+const MultiValue = (props: any) => <MultiValueStyled {...props} />;
+
 export default function LocatedInSelect() {
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -95,26 +110,19 @@ export default function LocatedInSelect() {
       isClearable={false}
       placeholder="Notebook or Space..."
       onMenuOpen={() => setOpen(true)}
-      is
       onMenuClose={() => {
         setOpen(false);
         setFocused(false);
       }}
       onFocus={e => {
-        console.log("focus", e);
         setFocused(true);
       }}
-      components={{ GroupHeading, Option }}
+      components={{ GroupHeading, Option, MultiValue }}
       styles={{
         multiValue: base => ({
           ...base,
-          background: "#F2F2F2",
-          height: "24px",
-          boxSizing: "border-box",
-          padding: "5px 8px",
-          borderRadius: "12px",
           fontSize: "12px",
-          paddingRight: "11px"
+          background: "transparent"
         }),
         placeholder: base => ({
           ...base,
@@ -124,24 +132,19 @@ export default function LocatedInSelect() {
         multiValueLabel: base => ({
           ...base,
           fontSize: "12px",
-          marginTop: "-3px"
+          marginTop: "2px",
+          color: "#0081C2"
         }),
         multiValueRemove: base => ({
           ...base,
           display: "none"
         }),
-        control: base => {
-          console.log("base", base);
-          return {
-            ...base,
-            "&:after": {
-              borderBottom: "1px solid red"
-            },
-            border: "none",
-            borderRadius: open || focused ? "4px" : "0px",
-            borderBottom: "1px solid hsl(0,0%,80%)"
-          };
-        },
+        control: base => ({
+          ...base,
+          border: "none",
+          borderRadius: open || focused ? "4px" : "0px",
+          borderBottom: "1px solid hsl(0,0%,80%)"
+        }),
         dropdownIndicator: base => ({
           ...base,
           color: "#000000"
