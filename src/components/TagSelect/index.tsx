@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Select from "react-select";
 
 const options = [
-  { label: "House", value: 1 },
-  { label: "red", value: 2 },
-  { label: "purple", value: 3 },
-  { label: "orange", value: 4 },
+  { label: "Groceries", value: 1 },
+  { label: "2019 Q1", value: 2 },
+  { label: "2019 Q2", value: 3 },
+  { label: "Important", value: 4 },
   {
-    label: "yellow",
+    label: "Pending",
     value: 7
   }
 ];
